@@ -2,21 +2,21 @@ import JoblyApi from './JoblyApi';
 import {useEffect, useState} from 'react';
 
 const CompanyList = () => {
-    const [companies, setCompanies] = useState(null);
+    const [companies, setCompanies] = useState('pizza');
 
     useEffect(() => {
         async function getCompanies() {
-            const companies = await JoblyApi.allCompanies();
-            console.log(companies);
-            setCompanies(companies);
+            const compRes = await JoblyApi.allCompanies();
+            setCompanies(compRes);
         }
         getCompanies();
+        console.log(companies);
     }, []);
 
 
     return(
         <div>
-            <h1>COMPANY LIST</h1>
+            {companies ? companies[0].description : 'Loading...'}
         </div>
     )
 }

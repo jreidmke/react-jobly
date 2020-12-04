@@ -9,14 +9,15 @@ const Company = () => {
     useEffect(() => {
         async function getCompany() {
             const company = await JoblyApi.getCompany(handle);
-            console.log(company);
             setCompany(company);
         }
+        getCompany();
     }, []);
 
     return(
         <div>
             <h1>This is a company.</h1>
+            {company ? company.handle : 'Loading...'}
         </div>
     )
 }
