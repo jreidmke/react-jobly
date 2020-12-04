@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import JoblyApi from './JoblyApi';
-import {useEffect, useState} from 'react';
 
 const JobList = () => {
     const [jobs, setJobs] = useState([]);
