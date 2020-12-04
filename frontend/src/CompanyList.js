@@ -7,3 +7,5 @@ const CompanyList = () => {
         </div>
     )
 }
+
+export default CompanyList;
