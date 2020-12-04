@@ -14,11 +14,8 @@ let baseURI = `postgresql://postgres:postgres4@localhost/`;
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
-      ? "jobly_test"
-      : process.env.DATABASE_URL || "jobly";
-
-  //return process.env.NODE_ENV === "test" ? `${baseURI}jobly-test` : `${baseURI}jobly`;
-
+      ? `${baseURI}jobly-test`
+      : process.env.DATABASE_URL || `${baseURI}jobly`;
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
@@ -34,8 +31,9 @@ console.log("Database:".yellow, getDatabaseUri());
 console.log("---");
 
 module.exports = {
+  DB_URI,
   SECRET_KEY,
   PORT,
   BCRYPT_WORK_FACTOR,
-  getDatabaseUri,
+  getDatabaseUri
 };
