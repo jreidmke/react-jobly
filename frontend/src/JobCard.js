@@ -1,15 +1,15 @@
-import "./CompanyCard.css";
+import "./JobCard.css";
 
-const CompanyCard = ({handle, description, logoUrl, name, numEmployees}) => {
+const JobCard = ({title, salary, equity, company_handle}) => {
     return(
         <div className='card
         '>
-            <h1>{name}</h1>
-            <h3>{description}</h3>
-            <h3>Number of Employees: {numEmployees}</h3>
-            <h4>{handle} and {logoUrl} who cares tho</h4>
+            <h1>{title}</h1>
+            <h3>Salary: {salary}</h3>
+            <h3>Equity: {equity}</h3>
+            <h4>{company_handle} </h4>
         </div>
     )
 }
 
-export default CompanyCard
+export default JobCard

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import JoblyApi from './JoblyApi';
+import JobCard from './JobCard';
 
 const JobList = () => {
     const [jobs, setJobs] = useState([]);
@@ -15,7 +16,14 @@ const JobList = () => {
 
     return(
         <div>
-            <h1>This is a Job list.</h1>
+            {jobs ? jobs.map(j =>
+            <JobCard
+            title={j.title}
+            salary={j.salary}
+            equity={j.equity}
+            company_handle={j.company_handle}
+            />
+            ) : 'Loading...'}
         </div>
     )
 }
