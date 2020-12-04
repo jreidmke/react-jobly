@@ -16,7 +16,7 @@ const CompanyList = () => {
 
     return(
         <div>
-            {console.log("PZIAJNKSFDL:")}
+            <h1>COMPANY LIST</h1>
         </div>
     )
 }

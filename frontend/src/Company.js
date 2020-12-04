@@ -1,8 +1,9 @@
 import JoblyApi from './JoblyApi';
-import {useEffect, useState, useParams} from 'react';
+import {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 
 const Company = () => {
-    const {handle} = useParams();
+    const { handle } = useParams();
     const [company, setCompany] = useState(null);
 
     useEffect(() => {
