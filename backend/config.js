@@ -31,7 +31,6 @@ console.log("Database:".yellow, getDatabaseUri());
 console.log("---");
 
 module.exports = {
-  DB_URI,
   SECRET_KEY,
   PORT,
   BCRYPT_WORK_FACTOR,
