@@ -13,6 +13,10 @@
     "title": {
       "type": "string",
       "minLength": 1
+    },
+    "_token": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false,

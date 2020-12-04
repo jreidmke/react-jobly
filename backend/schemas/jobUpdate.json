@@ -15,6 +15,10 @@
     "equity": {
       "type": "string",
       "pattern": "0|(0?\\.[0-9]+)"
+    },
+    "_token": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false,
