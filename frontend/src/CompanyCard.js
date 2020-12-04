@@ -1,6 +1,9 @@
+import "./CompanyCard.css";
+
 const CompanyCard = ({handle, description, logoUrl, name, numEmployees}) => {
     return(
-        <div>
+        <div className='card
+        '>
             <h1>{name}</h1>
             <h3>{description}</h3>
             <h3>Number of Employees: {numEmployees}</h3>

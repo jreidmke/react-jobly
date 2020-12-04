@@ -23,7 +23,8 @@ const Company = () => {
             description={company.description}
             logoUrl={company.logoUrl}
             name={company.name}
-            numEmployees={company.numEmployees}/> : 'Loading...'}
+            numEmployees={company.numEmployees}
+            key={company.handle}/> : 'Loading...'}
         </div>
     )
 }
