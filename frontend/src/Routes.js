@@ -4,6 +4,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+import Home from './Home';
 
 function Routes() {
     return(
@@ -36,3 +37,5 @@ function Routes() {
         </Switch>
     )
 }
+
+export default Routes;
