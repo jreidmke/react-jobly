@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import JoblyApi from './JoblyApi';
 import JobCard from './JobCard';
+import { uuid } from 'uuidv4';
 
 const JobList = () => {
     const [jobs, setJobs] = useState([]);
@@ -22,6 +23,7 @@ const JobList = () => {
             salary={j.salary}
             equity={j.equity}
             company_handle={j.company_handle}
+            key={uuid()}
             />
             ) : 'Loading...'}
         </div>

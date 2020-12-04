@@ -1,5 +1,3 @@
-import "./JobCard.css";
-
 const JobCard = ({title, salary, equity, company_handle}) => {
     return(
         <div className='card
