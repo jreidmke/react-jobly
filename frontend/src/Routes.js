@@ -5,6 +5,12 @@ import {
   Redirect
 } from 'react-router-dom';
 import Home from './Home';
+import CompanyList from './CompanyList';
+import Company from './Company';
+import JobList from './JobList';
+import LoginForm from './LoginForm';
+import Profile from './Profile';
+
 
 function Routes() {
     return(
@@ -31,7 +37,7 @@ function Routes() {
             </Route>
 
             <Route exact path='/profile'>
-                <Profiler/>
+                <Profile/>
             </Route>
 
         </Switch>
