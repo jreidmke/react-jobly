@@ -1,6 +1,7 @@
 import JoblyApi from './JoblyApi';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
+import CompanyCard from './CompanyCard';
 
 const Company = () => {
     const { handle } = useParams();
@@ -17,7 +18,12 @@ const Company = () => {
     return(
         <div>
             <h1>This is a company.</h1>
-            {company ? company.handle : 'Loading...'}
+            {company ? <CompanyCard
+            handle={company.handle}
+            description={company.description}
+            logoUrl={company.logoUrl}
+            name={company.name}
+            numEmployees={company.numEmployees}/> : 'Loading...'}
         </div>
     )
 }
