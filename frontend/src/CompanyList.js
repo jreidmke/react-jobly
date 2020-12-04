@@ -3,14 +3,12 @@ import {useEffect, useState} from 'react';
 import CompanyCard from './CompanyCard';
 
 const CompanyList = () => {
-    const [companies, setCompanies] = useState('pizza');
-    const [loading, setLoading] = useState(true);
+    const [companies, setCompanies] = useState(null);
 
     useEffect(() => {
         async function getCompanies() {
             const compRes = Array.from(await JoblyApi.allCompanies());
             setCompanies(compRes);
-            setLoading(false);
         }
         getCompanies();
     }, []);
@@ -18,7 +16,7 @@ const CompanyList = () => {
 
     return(
         <div>
-            {!loading ? companies.map(company => <CompanyCard
+            {companies ? companies.map(company => <CompanyCard
     handle={company.handle}
     description={company.description}
     logoUrl={company.logoUrl}
