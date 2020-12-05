@@ -1,10 +1,10 @@
-import JoblyApi from './JoblyApi';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import CompanyCard from './CompanyCard';
-import JobCard from './JobCard';
 import { v4 as uuid_v4 } from "uuid";
 
+import JoblyApi from './JoblyApi';
+import CompanyCard from './CompanyCard';
+import JobCard from './JobCard';
 
 const Company = () => {
     const { handle } = useParams();
@@ -24,9 +24,9 @@ const Company = () => {
         getJobs();
     }, []);
 
+
     return(
         <div>
-            <h1>This is a company.</h1>
             {company ? <CompanyCard
             handle={company.handle}
             description={company.description}

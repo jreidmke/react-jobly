@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ search }) => {
+const SearchBar = ({ handleSearch }) => {
     const INITIAL_STATE = {
         company: ""
     };
@@ -17,7 +17,7 @@ const SearchBar = ({ search }) => {
 
     const submit = e => {
         e.preventDefault();
-        search({...formData});
+        handleSearch({...formData});
         setFormData(INITIAL_STATE);
     };
 
@@ -31,6 +31,7 @@ const SearchBar = ({ search }) => {
                 name='company'
                 value={formData.company}
                 id='company'/>
+                <button>Submit</button>
             </form>
         </div>
     )
