@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import CompanyCard from './CompanyCard';
 import JobCard from './JobCard';
-import { uuid } from 'uuidv4';
+import { v4 as uuid_v4 } from "uuid";
+
 
 const Company = () => {
     const { handle } = useParams();
@@ -40,7 +41,7 @@ const Company = () => {
             salary={j.salary}
             equity={j.equity}
             company_handle={handle}
-            key={uuid()}
+            key={uuid_v4()}
             />) :
             'Loading...'}
         </div>
