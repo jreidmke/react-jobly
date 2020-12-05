@@ -28,11 +28,7 @@ class JoblyApi {
 
     static async allCompanies(search) {
       let res = await this.request(`companies`);
-      if(!search) {
-        return res.companies;
-      } else {
-        return res.companies.filter(c => c.name.indexOf(search) !== -1);
-      }
+      return search ? res.companies.filter(c => c.name.indexOf(search) !== -1) : res.companies
     }
 
     static async getCompany(handle) {
