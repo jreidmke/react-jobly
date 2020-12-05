@@ -2,10 +2,13 @@ import JoblyApi from './JoblyApi';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import CompanyCard from './CompanyCard';
+import JobCard from './JobCard';
+import { uuid } from 'uuidv4';
 
 const Company = () => {
     const { handle } = useParams();
     const [company, setCompany] = useState(null);
+    const [jobs, setJobs] = useState(null);
 
     useEffect(() => {
         async function getCompany() {
@@ -13,6 +16,11 @@ const Company = () => {
             setCompany(company);
         }
         getCompany();
+        async function getJobs() {
+            const jobs = await JoblyApi.getJobsByCompany(handle);
+            setJobs(jobs);
+        }
+        getJobs();
     }, []);
 
     return(
@@ -25,6 +33,16 @@ const Company = () => {
             name={company.name}
             numEmployees={company.numEmployees}
             key={company.handle}/> : 'Loading...'}
+
+            {jobs ? jobs.map(j =>
+            <JobCard
+            title={j.title}
+            salary={j.salary}
+            equity={j.equity}
+            company_handle={handle}
+            key={uuid()}
+            />) :
+            'Loading...'}
         </div>
     )
 }
