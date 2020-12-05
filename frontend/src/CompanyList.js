@@ -16,8 +16,6 @@ const CompanyList = () => {
 
 
     async function search(search) {
-        console.log("THIS IS SEARCH")
-        console.log(search);
         let companies = await JoblyApi.allCompanies(search.company);
         setCompanies(companies);
     }
