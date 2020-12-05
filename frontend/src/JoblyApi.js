@@ -41,6 +41,13 @@ class JoblyApi {
       return res.jobs;
     }
 
+    static async getJobsByCompany(handle) {
+      let res = await this.request(`jobs`);
+      console.log(res)
+      let jobs = res.jobs.filter(job => job.companyHandle === handle);
+      return jobs;
+    }
+
   }
 
 export default JoblyApi;
