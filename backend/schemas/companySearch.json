@@ -18,8 +18,12 @@
     "_token": {
       "type": "string",
       "minLength": 1
+    },
+    "search": {
+      "type": "string",
+      "minLength": 1
     }
   },
-  "additionalProperties": false,
+  "additionalProperties": true,
   "required": []
 }

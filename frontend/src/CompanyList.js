@@ -14,21 +14,27 @@ const CompanyList = () => {
         getCompanies();
     }, []);
 
-    const addCo = (x) => {
-        console.log(x);
+
+    async function search(search) {
+        console.log("THIS IS SEARCH")
+        console.log(search);
+        let companies = await JoblyApi.allCompanies(search.company);
+        setCompanies(companies);
     }
 
     return(
         <div>
-            <SearchBar handleSearch={addCo}/>
+            <SearchBar handleSearch={search}/>
 
-            {companies ? companies.map(company => <CompanyCard
-    handle={company.handle}
-    description={company.description}
-    logoUrl={company.logoUrl}
-    name={company.name}
-    numEmployees={company.numEmployees}
-    key={company.handle}/>) : 'Loading...'}
+            {companies ? companies.map(company =>
+            <CompanyCard
+                handle={company.handle}
+                description={company.description}
+                logoUrl={company.logoUrl}
+                name={company.name}
+                numEmployees={company.numEmployees}
+                key={company.handle}
+            />) : 'Loading...'}
         </div>
     )
 }
