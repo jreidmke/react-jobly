@@ -1,7 +1,7 @@
 import JoblyApi from './JoblyApi';
 import React, { useState } from "react";
 
-const RegisterForm = ({setToken}) => {
+const RegisterForm = () => {
     const INITIAL_STATE = {
         username: "",
         password: "",
@@ -29,8 +29,6 @@ const RegisterForm = ({setToken}) => {
         } catch (error) {
             console.log(error)
         }
-
-        // setToken({...formData});
         setFormData(INITIAL_STATE);
         window.location.replace("http://localhost:3000");
     };
