@@ -8,6 +8,7 @@ function NavBar() {
             <NavLink exact to="/companies">Companies</NavLink>
             <NavLink exact to="/jobs">Jobs</NavLink>
             <NavLink exact to="/profile">Profile</NavLink>
+            <NavLink exact to="/login">Login</NavLink>
         </nav>
     )
 }
