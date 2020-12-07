@@ -1,5 +1,6 @@
 import JoblyApi from './JoblyApi';
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 
 const LoginForm = ({setToken}) => {
     const INITIAL_STATE = {
@@ -35,13 +36,14 @@ const LoginForm = ({setToken}) => {
 
     return(
         <div>
+            <Link to='/register'>New User? Register Here!</Link>
             <form onSubmit={submit}>
                 <label htmlFor="username">Username</label>
                 <input
                 onChange={handleChange}
                 type='text'
                 name='username'
-                value={formData.company}
+                value={formData.username}
                 id='username'/>
 
                 <label htmlFor="password">Password</label>
@@ -49,7 +51,7 @@ const LoginForm = ({setToken}) => {
                 onChange={handleChange}
                 type='password'
                 name='password'
-                value={formData.company}
+                value={formData.password}
                 id='password'/>
                 <button>Submit</button>
             </form>

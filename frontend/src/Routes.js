@@ -11,7 +11,7 @@ import JobList from './JobList';
 import LoginForm from './LoginForm';
 import Profile from './Profile';
 import LoggedOut from './LoggedOut';
-
+import RegisterForm from './RegisterForm';
 
 function Routes() {
     return(

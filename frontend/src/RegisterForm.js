@@ -5,9 +5,9 @@ const RegisterForm = ({setToken}) => {
     const INITIAL_STATE = {
         username: "",
         password: "",
-        first_name,
-        last_name,
-        email
+        firstName: "",
+        lastName: "",
+        email: ""
     };
 
     const [formData, setFormData] = useState(INITIAL_STATE);
@@ -25,7 +25,7 @@ const RegisterForm = ({setToken}) => {
         let token;
 
         try {
-            token = await JoblyApi.login(formData);
+            token = await JoblyApi.register(formData);
         } catch (error) {
             console.log(error)
         }
@@ -45,7 +45,7 @@ const RegisterForm = ({setToken}) => {
                 onChange={handleChange}
                 type='text'
                 name='username'
-                value={formData.company}
+                value={formData.username}
                 id='username'/>
 
                 <label htmlFor="password">Password</label>
@@ -53,31 +53,31 @@ const RegisterForm = ({setToken}) => {
                 onChange={handleChange}
                 type='password'
                 name='password'
-                value={formData.company}
+                value={formData.password}
                 id='password'/>
 
-                <label htmlFor="first_name">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 <input
                 onChange={handleChange}
                 type='text'
-                name='first_name'
-                value={formData.company}
-                id='first_name'/>
+                name='firstName'
+                value={formData.firstName}
+                id='firstName'/>
 
-                <label htmlFor="last_name">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                 onChange={handleChange}
                 type='text'
-                name='last_name'
-                value={formData.company}
-                id='last_name'/>
+                name='lastName'
+                value={formData.lastName}
+                id='lastName'/>
 
                 <label htmlFor="email">Email</label>
                 <input
                 onChange={handleChange}
                 type='email'
                 name='email'
-                value={formData.company}
+                value={formData.email}
                 id='email'/>
 
                 <button>Submit</button>
