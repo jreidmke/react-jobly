@@ -10,6 +10,7 @@ import Company from './Company';
 import JobList from './JobList';
 import LoginForm from './LoginForm';
 import Profile from './Profile';
+import LoggedOut from './LoggedOut';
 
 
 function Routes() {
@@ -17,7 +18,7 @@ function Routes() {
         <Switch>
 
             <Route exact path='/'>
-                <Home/> {/*make a home component*/}
+                <Home/> 
             </Route>
 
             <Route exact path='/companies'>
@@ -38,6 +39,10 @@ function Routes() {
 
             <Route exact path='/profile'>
                 <Profile/>
+            </Route>
+
+            <Route exact path='/logout'>
+                <LoggedOut/>
             </Route>
 
         </Switch>

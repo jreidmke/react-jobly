@@ -29,7 +29,9 @@ const LoginForm = ({setToken}) => {
 
         // setToken({...formData});
         setFormData(INITIAL_STATE);
+        window.location.replace("http://localhost:3000");
     };
+
 
     return(
         <div>

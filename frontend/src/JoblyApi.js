@@ -7,8 +7,6 @@ class JoblyApi {
       // "3RpbmciLCJpc19hZG1pbiI6ZmFsc2UsImlhdCI6MTU1MzcwMzE1M30." +
       // "COmFETEsTxN_VfIlgIKw0bYJLkvbRQNgO1XCSE8NZ0U");
 
-      // let _token = localStorage.getItem(TOKEN);
-
       console.debug("API Call:", endpoint, paramsOrData, verb);
 
       try {
