@@ -57,7 +57,7 @@ class User {
    **/
 
   static async register(
-      { username, password, firstName, lastName, email, isAdmin }) {
+      { username, password, firstName, lastName, email, isAdmin=false }) {
     const duplicateCheck = await db.query(
           `SELECT username
            FROM users
@@ -68,11 +68,6 @@ class User {
     if (duplicateCheck.rows[0]) {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
-
-    console.log("********************************");
-    console.log(username);
-    console.log("********************************");
-
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 

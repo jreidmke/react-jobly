@@ -18,7 +18,7 @@ function Routes() {
         <Switch>
 
             <Route exact path='/'>
-                <Home/> 
+                <Home/>
             </Route>
 
             <Route exact path='/companies'>
@@ -43,6 +43,10 @@ function Routes() {
 
             <Route exact path='/logout'>
                 <LoggedOut/>
+            </Route>
+
+            <Route exact path='/register'>
+                <RegisterForm/>
             </Route>
 
         </Switch>
