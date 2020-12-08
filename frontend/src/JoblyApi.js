@@ -61,10 +61,15 @@ class JoblyApi {
     }
 
     static async getCurrentUser(username) {
-      let res = await this.request(`users/${username}`);
+      const token = localStorage.getItem('_token');
+      // let res = await this.request(`users/${username}`);
+      let res = await axios.get(`http://localhost:3001/users/${username}`, {}, {
+        headers: {
+          'authorization': token
+        }
+      })
       return res.user;
     }
-
   }
 
 export default JoblyApi;

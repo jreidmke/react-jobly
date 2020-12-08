@@ -11,23 +11,23 @@ function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
-  // useEffect(() => {
-  //   async function getCurrentUser() {
-  //     try {
-  //       const token = localStorage.getItem('_token');
-  //       let {username} = decode(token);
-  //       let user = await JoblyApi.getCurrentUser('jim');
-  //       setUser(user);
-  //     } catch (error) {
-  //       setUser(null);
-  //     }
-  //     // const token = localStorage.getItem('_token');
-  //     // let {username} = await decode(token);
-  //     // let user = await JoblyApi.getCurrentUser(username);
-  //     // console.log(user);
-  //   }
-  //   getCurrentUser();
-  // }, [token, setToken]);
+  useEffect(() => {
+    async function getCurrentUser() {
+      try {
+        const token = localStorage.getItem('_token');
+        let {username} = decode(token);
+        let user = await JoblyApi.getCurrentUser(username);
+        console.log(user);
+      } catch (error) {
+        setUser(null);
+      }
+      // const token = localStorage.getItem('_token');
+      // let {username} = await decode(token);
+      // let user = await JoblyApi.getCurrentUser(username);
+      // console.log(user);
+    }
+    getCurrentUser();
+  }, [token, setToken]);
 
   return (
     <div className="App">
