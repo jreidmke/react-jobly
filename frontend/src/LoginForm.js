@@ -2,7 +2,7 @@ import JoblyApi from './JoblyApi';
 import React, { useState } from "react";
 import {Link} from 'react-router-dom'
 
-const LoginForm = ({setToken}) => {
+const LoginForm = () => {
     const INITIAL_STATE = {
         username: "",
         password: ""
@@ -24,11 +24,11 @@ const LoginForm = ({setToken}) => {
 
         try {
             token = await JoblyApi.login(formData);
+            console.log(token);
         } catch (error) {
             console.log(error)
         }
 
-        // setToken({...formData});
         setFormData(INITIAL_STATE);
         window.location.replace("http://localhost:3000");
     };
