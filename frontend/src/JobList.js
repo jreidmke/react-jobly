@@ -11,10 +11,10 @@ const JobList = () => {
     const [jobs, setJobs] = useState([]);
     const [applied, setApplied] = useState(user.applications);
 
+
     useEffect(() => {
         async function getJobs() {
             const jobResp = await JoblyApi.allJobs();
-            console.log(jobResp);
             setJobs(jobResp);
         }
         getJobs();
@@ -23,8 +23,12 @@ const JobList = () => {
     async function apply(jobIdx) {
         let jobId = jobs[jobIdx].id;
         let resp = await JoblyApi.applyToJob(user.username, jobId);
-        console.log(resp);
-        // setJobs(j => j.map(job => job.id===jobId ? {...job, isActive: resp} : job));
+        setApplied([...applied, resp.applied]);
+        // setJobs(j => j.map(job =>
+        //     job.id === jobId ? { ...job, isActive: resp} : job
+        //   ));
+        // console.log(jobs);
+        console.log(applied);
     }
 
     return(
