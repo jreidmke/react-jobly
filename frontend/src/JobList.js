@@ -15,6 +15,11 @@ const JobList = () => {
         getJobs();
     }, []);
 
+    async function apply(jobIdx) {
+        let jobId = jobs[jobIdx].id;
+        
+    }
+
     return(
         <div>
             {jobs ? jobs.map(j =>
@@ -24,6 +29,7 @@ const JobList = () => {
             equity={j.equity}
             company_handle={j.company_handle}
             key={uuid_v4()}
+            handleApply={apply}
             />
             ) : 'Loading...'}
         </div>
