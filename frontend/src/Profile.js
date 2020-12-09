@@ -21,6 +21,8 @@ const ProfileForm = () => {
 
     const submit = e => {
         e.preventDefault();
+        //ping update user route thru JoblyApi. 
+        setFormData(INITIAL_STATE);
     }
 
     return(
