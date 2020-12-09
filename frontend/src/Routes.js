@@ -38,9 +38,9 @@ function Routes() {
                 <LoginForm/>
             </Route>
 
-            <Route exact path='/profile'>
+            <ProtectedRoute exact path='/profile'>
                 <Profile/>
-            </Route>
+            </ProtectedRoute>
 
             <Route exact path='/logout'>
                 <LoggedOut/>
