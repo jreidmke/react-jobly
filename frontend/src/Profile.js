@@ -19,15 +19,54 @@ const ProfileForm = () => {
         }));
     };
 
-    const submit = e => {
+    async function submit(e) {
         e.preventDefault();
-        //ping update user route thru JoblyApi. 
-        setFormData(INITIAL_STATE);
+        user = await JoblyApi.updateUser(formData);
+        setFormData({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            password: ""
+        });
     }
 
     return(
         <div>
-            <h1>This is a profile.</h1>
+            <form onSubmit={submit}>
+
+                <label htmlFor="firstName">First Name</label>
+                <input
+                onChange={handleChange}
+                type='text'
+                name='firstName'
+                value={formData.username}
+                id='firstName'/>
+
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                onChange={handleChange}
+                type='text'
+                name='lastName'
+                value={formData.username}
+                id='lastName'/>
+
+                <label htmlFor="email">Email</label>
+                <input
+                onChange={handleChange}
+                type='email'
+                name='email'
+                value={formData.username}
+                id='email'/>
+
+                <label htmlFor="password">Password</label>
+                <input
+                onChange={handleChange}
+                type='password'
+                name='password'
+                value={formData.password}
+                id='password'/>
+                <button>Submit</button>
+            </form>
         </div>
     )
 }
