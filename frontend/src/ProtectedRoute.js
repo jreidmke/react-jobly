@@ -1,4 +1,20 @@
 import { useContext } from "react";
 import UserContext from "./UserContext";
+import { Route, Redirect } from "react-router-dom";
 
-const ProtectedRoute
+
+const ProtectedRoute = ({ exact, path, component }) => {
+    const { user } = useContext(UserContext);
+
+    if(!user) {
+        return<Redirect to="/login"/>
+    };
+
+    return (
+        <Route exact={exact} path={path}>
+          {component}
+        </Route>
+      );
+}
+
+export default ProtectedRoute;
