@@ -1,11 +1,14 @@
 import JoblyApi from './JoblyApi';
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "./UserContext";
 
 const ProfileForm = () => {
+    const { user, setUser } = useContext(UserContext);
+
     const INITIAL_STATE = {
-        firstName: "",
-        lastName: "",
-        email: "",
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
         password: ""
     };
 
@@ -21,13 +24,14 @@ const ProfileForm = () => {
 
     async function submit(e) {
         e.preventDefault();
-        user = await JoblyApi.updateUser(formData);
+        const userResp = await JoblyApi.updateUser(user.username, formData);
         setFormData({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
+            firstName: userResp.firstName,
+            lastName: userResp.lastName,
+            email: userResp.email,
             password: ""
         });
+        setUser(userResp);
     }
 
     return(
