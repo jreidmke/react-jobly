@@ -15,22 +15,20 @@ function App() {
     async function getCurrentUser() {
       try {
         const token = localStorage.getItem('_token');
+        setToken(token);
         let {username} = decode(token);
         let user = await JoblyApi.getCurrentUser(username);
-        console.log(user);
+        setUser(user);
       } catch (error) {
         setUser(null);
       }
-      // const token = localStorage.getItem('_token');
-      // let {username} = await decode(token);
-      // let user = await JoblyApi.getCurrentUser(username);
-      // console.log(user);
     }
     getCurrentUser();
-  }, [token, setToken]);
+  }, [token]);
 
   return (
     <div className="App">
+      {console.log(user)}
       <BrowserRouter>
         <NavBar/>
         <Routes/>

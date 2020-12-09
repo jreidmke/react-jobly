@@ -17,7 +17,7 @@ VALUES ('testuser',
         '$2b$12$AZH7virni5jlTTiGgEg4zu3lSvAw68qVEfSIOjJ3RqtbJbdW/Oi5q',
         'James',
         'Reid',
-        'jreidmke@gmail.com',
+        'jreid@gmail.com',
         TRUE);
 
 INSERT INTO companies (handle,

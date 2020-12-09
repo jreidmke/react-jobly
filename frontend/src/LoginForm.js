@@ -21,16 +21,15 @@ const LoginForm = () => {
     async function submit(e) {
         e.preventDefault();
         let token;
-
         try {
             token = await JoblyApi.login(formData);
-            console.log(token);
+            localStorage.setItem("_token", token);
         } catch (error) {
             console.log(error)
         }
 
         setFormData(INITIAL_STATE);
-        // window.location.replace("http://localhost:3000");
+        window.location.replace("http://localhost:3000");
     };
 
 
