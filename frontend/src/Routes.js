@@ -12,6 +12,7 @@ import LoginForm from './LoginForm';
 import Profile from './Profile';
 import LoggedOut from './LoggedOut';
 import RegisterForm from './RegisterForm';
+import ProtectedRoute from './ProtectedRoute';
 
 function Routes() {
     return(
@@ -21,17 +22,17 @@ function Routes() {
                 <Home/>
             </Route>
 
-            <Route exact path='/companies'>
+            <ProtectedRoute exact path='/companies'>
                 <CompanyList/>
-            </Route>
+            </ProtectedRoute>
 
-            <Route exact path='/companies/:handle'>
+            <ProtectedRoute path='/companies/:handle'>
                 <Company/>
-            </Route>
+            </ProtectedRoute>
 
-            <Route exact path='/jobs'>
+            <ProtectedRoute exact path='/jobs'>
                 <JobList/>
-            </Route>
+            </ProtectedRoute>
 
             <Route exact path='/login'>
                 <LoginForm/>
